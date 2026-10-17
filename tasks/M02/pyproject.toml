@@ -1,0 +1,43 @@
+[project]
+name = "ds_dd_m02"
+version = "0.1.0"
+description = "zadania ds_dd_m02"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    # Tutaj trafiają główne zależności produkcyjne, np.:
+    # "requests>=2.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "flake8==7.4.1",
+    "flake8-pyproject==1.2.4",
+    "black==26.10.1",
+]
+
+# --- Konfiguracja narzędzi ---
+
+[tool.black]
+line-length = 88
+target-version = ['py314']
+include = '\.pyi?$'
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "build",
+    "dist"
+]
+
+[tool.pytest.ini_options]
+minversion = "9.1"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
